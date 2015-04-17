@@ -1,0 +1,9 @@
+    <ul id="user-hud">
+      <% if @user %>
+        <li><a href="/users/<%= @user.id %>">@<%= @user.username %></a></li>
+        <li><a href="/logout">Log Out</a></li>
+      <% else %>
+        <li><a href="/login">Log In</a></li>
+        <li><a href="/users/new">Create Account</a></li>
+      <% end %>
+    </ul>
