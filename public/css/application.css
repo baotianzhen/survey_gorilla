@@ -21,7 +21,7 @@ header {
 }
 header h1 {
   color: white;
-  position: static;
+  float: left;
   left: 50%;
   margin: 10px auto;
 }
@@ -32,10 +32,9 @@ header a:hover {
   text-shadow: 0px 0px 15px #ccf;
 }
 nav {
-  position: absolute;
+  position: relative;
   float: left;
-  color: yellow;
-  top: 60px;
+  margin-top: 30px;
   margin-left: 20%;
 
 }
@@ -56,6 +55,7 @@ header ul {
   margin: 0px;
   margin-right: -35%;
 }*/
+
 header li {
   display: inline;
   padding-right: 18px;
@@ -65,6 +65,8 @@ header li {
 header li:first-of-type {
   border: none;
 }
+
+
 body {
   font-family: 'Roboto', sans-serif;
   color: #444;
@@ -79,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 form {
 
 }
+
 input {
   display: inline;
   border-radius: 5px;
