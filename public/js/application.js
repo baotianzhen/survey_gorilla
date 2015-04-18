@@ -1,14 +1,19 @@
 $(document).ready(function() {
 	$("#user-hud").on("click", "#new-hud", function(e) {
 		e.preventDefault();
-		$("#create-popup").removeClass("hide");
+		// $("#create-popup").removeClass("hide");
+		$("#create-popup").slideDown("slow", function() {
+
+		});
 		$("#create-popup").addClass("hud-popup");
 	})
 
 	$("#user-hud").on("click", "#login-hud", function(e) {
-		console.log(this)
 		e.preventDefault();
-		$("#login-popup").removeClass("hide");
+		// $("#login-popup").removeClass("hide");
+		$("#login-popup").slideDown("slow", function() {
+
+		});
 		$("#login-popup").addClass("hud-popup");
 	})
   // This is called after the document has loaded in its entirety
