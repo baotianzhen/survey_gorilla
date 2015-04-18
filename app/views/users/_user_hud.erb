@@ -3,7 +3,7 @@
         <li><a href="/users/<%= @user.id %>">@<%= @user.username %></a></li>
         <li><a href="/logout">Log Out</a></li>
       <% else %>
-        <li><a href="/login">Log In</a></li>
-        <li><a href="/users/new" id="new-user">Sign Up</a></li>
+        <li><a href="/login" id="login-hud">Log In</a></li>
+        <li><a href="/users/new" id="new-hud">Sign Up</a></li>
       <% end %>
     </ul>
