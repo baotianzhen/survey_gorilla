@@ -18,15 +18,41 @@ post '/users' do
   else
     # @errors = user.errors.full_messages.to_sentence
     puts "login fail :|"
-    redirect '/'
+    redirect "/"
   end
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id])
+  redirect "/" unless params[:id].to_i == session[:id]
+  @user = User.find(session[:id])
+  @surveys = @user.surveys
+  erb :'/users/show'
+  redirect '/'
 end
 
 get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :'/users/edit'
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  if @user.update(params[:user])
+    redirect '/users/#{@user.id}'
+  else
+    # @errors = user.errors.full_messages.to_sentence
+    erb :'/users/edit'
+  end
+end
+
+delete '/users/:id' do
+  @user = User.find(params[:id])
+  if @user.destroy
+    redirect '/'
+  else
+    # @errors = user.errors.full_messages.to_sentence
+    erb :'/users/show'
+  end
 end
 
 
