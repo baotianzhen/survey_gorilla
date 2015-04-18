@@ -1,0 +1,18 @@
+<div class = "surveys">
+
+<form action='/submissions/<%= @submission.id %>' method='post'>
+	<ul>
+		<% @questions.each do |question| %>
+			<li>
+				<%= question.prompt %>
+					<% question.choices.each do |choice| %>
+						<label for="<%= choice.body %>"><%= choice.body %></label>
+						<input type="radio" name="answers[:<%= question.id %>]" value="<%= choice.id %>">
+					<% end %>
+			</li>
+		<% end %>
+	</ul>
+	<input type="submit" name="submit survey">
+</form>
+
+</div>
