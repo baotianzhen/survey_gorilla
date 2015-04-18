@@ -1,12 +1,19 @@
+	
 
-
-<div class = "surveys">	
-	<h1><%= @survey.title %>:</h1>
-	<% if @responses != [] %>
-		<% @responses.each do |response| %>
-			<%= response.body %> 
+	<div class = "surveys">	
+		<h1><%= @survey.title %>:</h1>
+		<h2>Submission Count: <%= @submissions.count %></h2>
+	 	<% if @submissions %>
+	 		<% @submissions.each do |submission| %>
+				<% submission.questions.each do |question| %>
+						<h3><%= question.prompt %></br></h3>
+						<% question.choices.each do |choice| %>
+							<p><%= choice.body %>: <%= ((choice.responses.count/@submissions.count.to_f) * 100).to_i %>%</p>
+						<% end %>	
+					<% end %>
+			<% end %>
+		<% else %>
+			<h1> There have been no responses to your banana-centric survey yet </h1> 
 		<% end %>
-	<% else %>
-		<h1> There have been no responses to your banana-centric survey yet </h1> 
-	<% end %>
-</div>
+	</div>
+

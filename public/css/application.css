@@ -105,5 +105,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .surveys {
   position: relative;
-  top: 10em;
+  top: 5em;
+  width: 50%;
+  text-align: center;
 }
+
+.responses {
+  text-align: left;
+  width: 50%;
+  display:inline;
+  float:right;
+}
+
+
