@@ -1,3 +1,9 @@
+before /^(?!\/)/ do
+  unless session(:id)
+    redirect '/login'
+  end
+end
+
 get '/' do
   erb :index
 end
