@@ -18,17 +18,16 @@ post '/users' do
   else
     # @errors = user.errors.full_messages.to_sentence
     puts "login fail :|"
-    redirect '/'
+    redirect "/"
   end
 end
 
 get '/users/:id' do
-  puts params[:id].inspect
-  puts session[:id].inspect
-  puts session[:id] == params[:id]
   redirect "/" unless params[:id].to_i == session[:id]
   @user = User.find(session[:id])
+  @surveys = @user.surveys
   erb :'/users/show'
+  redirect '/'
 end
 
 get '/users/:id/edit' do

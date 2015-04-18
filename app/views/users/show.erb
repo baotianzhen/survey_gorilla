@@ -1,3 +1,13 @@
 <h1>this it the user show page</h1>
 <h2> hello <%= @user.username %>!</h2>
 <a href="/surveys/new">Create a survey</a>
+
+<h2><%= @user.username %>'s Surveys</h2>
+<body>
+	<div class = "surveys">
+		<% @surveys.each do |survey| %>
+			<a href="/surveys/<%= survey.id %>/submissions"><%= survey.title %></a>
+		<% end %>
+	</div>
+</body>
+

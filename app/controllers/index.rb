@@ -5,7 +5,8 @@
 # end
 
 get '/' do
-	@user = User.find(session[:id]) if session[:id]
+	@surveys = Survey.all
+	# @user = User.find(session[:id]) if session[:id]
   erb :index
 end
 
