@@ -78,17 +78,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #222;
 }
 
-form {
-
-}
-
-input {
-  display: inline;
-  border-radius: 5px;
-  border: 1px solid #777;
-  margin: 5px;
-}
-
+÷
 
 .container {
   background: white;
@@ -98,4 +88,16 @@ input {
   min-height: 400px;
   margin: 0 auto;
   box-shadow: 0px 0px 4px #333;
+}
+
+.hide {
+  display: none;
+}
+
+.hud-popup {
+  color: black;
+  clear: both;
+  width: 260px;
+  background-color: #555;
+  float: right;
 }

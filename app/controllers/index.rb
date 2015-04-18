@@ -1,4 +1,5 @@
 get '/' do
+	@user = User.find(session[:id]) if session[:id]
   erb :index
 end
 
@@ -7,7 +8,23 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find(session[:id])
+	puts params[:login][:username]
+	puts params[:login][:password]
+  # user = User.find(session[:id])
+  	@user = User.authenticate(params[:login][:username], params[:login][:password])
+	if @user
+  	session[:id] = @user.id
+  	puts "user #{@user.id} authenticated"
+  	redirect "/"
+  	# redirect "/users/#{@user.id}"
+  else
+  	puts "fail"
+  	redirect "/"
+  end
 end
 
+get "/logout" do
+	session[:id] = nil
+	redirect "/"
+end
 

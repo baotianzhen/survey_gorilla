@@ -1,0 +1,24 @@
+<div class="hide" id="create-popup">
+	<table>
+		<th>
+			<h1>Create Account</h1>
+		</th>
+	<form action="/users" method="post">
+		<tr><td>
+		<label for="user_username" class="label">Username</label>
+		<input type="text" name="user[username]" placeholder="Coco73" />
+		</td></tr>
+		<tr><td>
+		<label for="user_email" class="label">Email</label>
+		<input type="email" name="user[email]" placeholder="coco@bananalabs.com" />
+		</td></tr>
+		<tr><td>
+		<label for="user_password" class="label">Password</label>
+		<input type="password" name="user[password]" />
+		</td></tr>
+		<tr><td>
+		<input type="submit" value="Sign Up" />
+	</td></tr>
+	</form>
+	</table>
+</div>
