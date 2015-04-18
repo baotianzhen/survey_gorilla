@@ -1,12 +1,14 @@
 #INDEX
 get '/surveys' do
+  @user = validate_user
   @surveys = Survey.all
+  # @user_surveys = @user.surveys
   erb :'/surveys'
 end
 
 #NEW
 get '/surveys/new' do
-  @user = User.find(session[:id])
+  @user = validate_user
   erb :'/surveys/new'
 end
 
@@ -23,6 +25,7 @@ end
 
 #SHOW
 get '/surveys/:id' do
+  @user = validate_user
   @survey = Survey.find(params[:id])
   @responses = @survey.responses 
   @questions = @survey.questions
@@ -32,6 +35,7 @@ end
 
 #EDIT
 get '/surveys/:id/edit' do
+  @user = validate_user
   @survey = Survey.find(params[:id])
   erb :'/surveys/edit'
 end

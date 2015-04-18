@@ -1,4 +1,5 @@
 get '/surveys/:id/submissions' do
+	@user = validate_user
 	"this is a submission for survey #{params[:id]}"
 	@survey =	Survey.find(params[:id])
 	@questions = @survey.questions
