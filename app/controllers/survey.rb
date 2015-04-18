@@ -13,7 +13,7 @@ end
 post '/surveys' do
   @survey = Survey.new(params[:survey])
   if @survey.save
-    redirect '/surveys/#{@survey.id}'
+    redirect "/surveys/#{@survey.id}/questions/new"
   else
     @errors = @survey.errors.full_messages.to_sentence
     erb :'/surveys/new'
