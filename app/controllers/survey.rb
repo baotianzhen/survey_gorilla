@@ -24,6 +24,9 @@ end
 #SHOW
 get '/surveys/:id' do
   @survey = Survey.find(params[:id])
+  @responses = @survey.responses 
+  @questions = @survey.questions
+  @submissions = @survey.submissions
   erb :'/surveys/show'
 end
 

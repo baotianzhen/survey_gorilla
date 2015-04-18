@@ -4,11 +4,10 @@
     <h2> hello <%= @user.username %>!</h2>
     <a href="/surveys/new">Create a survey</a>
     <h2><%= @user.username %>'s Surveys</h2>
-
     <ul>
 		<% @surveys.each do |survey| %>
       <li>
-			<a href="/surveys/<%= survey.id %>/submissions"><%= survey.title %></a>
+			 <a href="/surveys/<%= survey.id %>"><%= survey.title %></a>
       </li>
 		<% end %>
   </ul>

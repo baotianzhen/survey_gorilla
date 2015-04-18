@@ -7,13 +7,13 @@ get '/surveys/:id/submissions' do
 end
 
 
-get '/submissions/:id' do
-	@submission = Submission.find(params[:id])
-	@responses = @submission.responses
-	@survey = @submission.survey
-	@questions = @survey.questions
-	erb :'/surveys/show'
-end
+# get '/submissions/:id' do
+# 	@submission = Submission.find(params[:id])
+# 	@responses = @submission.responses
+# 	@survey = @submission.survey
+# 	@questions = @survey.questions
+# 	erb :'/surveys/show'
+# end
 
 post '/submissions/:id' do
 	@submission = Submission.find(params[:id])

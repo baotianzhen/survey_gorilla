@@ -1,0 +1,12 @@
+
+
+<div class = "surveys">	
+	<h1><%= @survey.title %>:</h1>
+	<% if @responses != [] %>
+		<% @responses.each do |response| %>
+			<%= response.body %> 
+		<% end %>
+	<% else %>
+		<h1> There have been no responses to your banana-centric survey yet </h1> 
+	<% end %>
+</div>
