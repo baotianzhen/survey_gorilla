@@ -23,10 +23,37 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id])
+  puts params[:id].inspect
+  puts session[:id].inspect
+  puts session[:id] == params[:id]
+  redirect "/" unless params[:id].to_i == session[:id]
+  @user = User.find(session[:id])
+  erb :'/users/show'
 end
 
 get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :'/users/edit'
+end
+
+put '/users/:id' do
+  @user = User.find(params[:id])
+  if @user.update(params[:user])
+    redirect '/users/#{@user.id}'
+  else
+    # @errors = user.errors.full_messages.to_sentence
+    erb :'/users/edit'
+  end
+end
+
+delete '/users/:id' do
+  @user = User.find(params[:id])
+  if @user.destroy
+    redirect '/'
+  else
+    # @errors = user.errors.full_messages.to_sentence
+    erb :'/users/show'
+  end
 end
 
 
