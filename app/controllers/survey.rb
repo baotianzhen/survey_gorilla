@@ -6,6 +6,7 @@ end
 
 #NEW
 get '/surveys/new' do
+  @user = User.find(session[:id])
   erb :'/surveys/new'
 end
 

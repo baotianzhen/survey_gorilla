@@ -1,5 +1,6 @@
 <h1> new survey </h1>
 <form id="new_survey" action="/surveys" method="post">
   <input type="text" name="survey[title]" placeholder="Title of gorilla survey">
+  <input type="hidden" name="survey[author_id]" value="<%= session[:id] %>"/>
   <input type="submit" value="Create Survey">
 </form>

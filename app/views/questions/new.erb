@@ -1,6 +1,10 @@
-<h3> new question </h3>
-<form id="new_question" action="/questions" method="post">
-  <input type="text" name="question[prompt]" placeholder="Give me your banana question here...">
-  <input type="submit" value="Create Question">
+<h3>new question</h3>
+<form id="new_question" action="/surveys/<%= @survey.id %>/questions" method="post">
+  <%= erb :"questions/_form", locals: {question: @question} %>
+  <input type="submit" value="Create question!">
+
 </form>
 
+<form id="complete_question" action="/surveys/<%= @survey.id %>" method="get">
+  <input type="submit" value="I'm finished!">
+</form>
