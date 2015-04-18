@@ -23,9 +23,11 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id])
-  # erb :'/users/show'
-  redirect '/'
+  @user = User.find(session[:id])
+  redirect "/" unless params[:id].to_i == session[:id]
+  @surveys = @user.surveys
+  erb :'/users/show'
+  # redirect '/'
 end
 
 get '/users/:id/edit' do
@@ -36,7 +38,7 @@ end
 put '/users/:id' do
   @user = User.find(params[:id])
   if @user.update(params[:user])
-    redirect '/users/#{@user.id}'
+    redirect "/users/#{@user.id}"
   else
     # @errors = user.errors.full_messages.to_sentence
     erb :'/users/edit'
