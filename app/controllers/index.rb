@@ -5,8 +5,9 @@
 # end
 
 get '/' do
-	# @surveys = Survey.all
+	@surveys = Survey.all
 	@user = User.find(session[:id]) if session[:id]
+
   erb :index
   # redirect "/users/#{@user.id}"
 end
