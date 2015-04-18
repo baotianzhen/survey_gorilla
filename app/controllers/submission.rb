@@ -12,9 +12,7 @@ post '/submissions/:id' do
 		puts "ill do this later"
 	else
 		params[:answers].each do |question, answer|
-	  
-	  @submission.responses <<  Response.create!(submission_id: @submission.id, choice_id: answer)
-
+      @submission.responses <<  Response.create!(submission_id: @submission.id, choice_id: answer)
 		end
 		redirect '/'
  	end
