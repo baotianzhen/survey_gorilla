@@ -18,13 +18,14 @@ post '/users' do
   else
     # @errors = user.errors.full_messages.to_sentence
     puts "login fail :|"
-    redirect '/'
+    redirect "/"
   end
 end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  erb :'/users/show'
+  # erb :'/users/show'
+  redirect '/'
 end
 
 get '/users/:id/edit' do
