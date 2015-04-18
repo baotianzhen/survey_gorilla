@@ -1,3 +1,9 @@
+# before /^(?!\/)/ do
+#   unless session[:id]
+#     redirect '/login'
+#   end
+# end
+
 get '/' do
 	@user = User.find(session[:id]) if session[:id]
   erb :index
@@ -11,12 +17,11 @@ post '/login' do
 	puts params[:login][:username]
 	puts params[:login][:password]
   # user = User.find(session[:id])
-  	@user = User.authenticate(params[:login][:username], params[:login][:password])
+  @user = User.authenticate(params[:login][:username], params[:login][:password])
 	if @user
   	session[:id] = @user.id
   	puts "user #{@user.id} authenticated"
-  	redirect "/"
-  	# redirect "/users/#{@user.id}"
+  	redirect "/users/#{@user.id}"
   else
   	puts "fail"
   	redirect "/"
