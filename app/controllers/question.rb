@@ -9,6 +9,11 @@ post "/surveys/:id/questions" do
   @question =  Question.new(params[:question])
   @survey.questions << @question
   if @question.save
+    Choice.create(body: "Totally Bananas", question_id: @question.id)
+    Choice.create(body: "Strongly Bananas", question_id: @question.id)
+    Choice.create(body: "Medium Bananas", question_id: @question.id)
+    Choice.create(body: "Just Bananas", question_id: @question.id)
+    Choice.create(body: "Barely Bananas", question_id: @question.id)
     redirect "/surveys/#{@survey.id}/questions/new"
   else
     @errors = @question.errors.full_messages.to_sentence
