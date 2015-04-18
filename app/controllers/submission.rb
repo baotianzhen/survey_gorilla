@@ -1,8 +1,9 @@
 get '/surveys/:id/submissions' do
+	@user = validate_user
 	"this is a submission for survey #{params[:id]}"
 	@survey =	Survey.find(params[:id])
 	@questions = @survey.questions
-  @submission = Submission.create
+  @submission = @user.submissions.create
  erb :'submissions/new'
 end
 

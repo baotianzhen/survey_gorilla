@@ -1,4 +1,5 @@
 get "/surveys/:id/questions/new" do
+  @user = validate_user
   @survey = Survey.find(params[:id])
   @question = Question.new(survey_id: params[:id])
   erb :"questions/new"
