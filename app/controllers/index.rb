@@ -12,9 +12,9 @@ get '/' do
   # redirect "/users/#{@user.id}"
 end
 
-get '/login' do
-  erb :login
-end
+# get '/login' do
+#   erb :login
+# end
 
 post '/login' do
 	puts params[:login][:username]
