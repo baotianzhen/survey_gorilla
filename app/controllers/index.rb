@@ -11,6 +11,10 @@ get '/' do
   # redirect "/users/#{@user.id}"
 end
 
+get "/about" do
+  erb :about
+end
+
 get '/login' do
   erb :login
 end

@@ -1,9 +1,9 @@
 #INDEX
-get '/surveys' do
+get '/surveys/?' do
   @user = validate_user
   @surveys = Survey.all
   # @user_surveys = @user.surveys
-  erb :'/surveys'
+  erb :'/surveys/index'
 end
 
 #NEW
