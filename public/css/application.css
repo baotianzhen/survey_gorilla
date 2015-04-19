@@ -110,9 +110,14 @@ h1, h2, h3, h4, h5, h6 {
   top: 100px;
 }
 
-img {
+.pic-container {
+  width: 280px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+#about-pic{
   width: 250px;
   height: 250px;
-  margin: 0 auto;
-  display: inline;
 }
