@@ -6,8 +6,10 @@ helpers do
       puts "session id detected"
       return User.find(session[:id])
     else
-      puts "no session id"
-      redirect "/"
+      puts "anonymous user detected"
+      return User.find_by(username: "Anonymous")
+      # puts "no session id"
+      # redirect "/"
     end
   end
 
