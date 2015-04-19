@@ -6,6 +6,7 @@ get "/surveys/:id/questions/new" do
 end
 
 post "/surveys/:id/questions" do
+  puts params
   @survey = Survey.find(params[:id])
   @question =  Question.new(params[:question])
   @survey.questions << @question
@@ -15,10 +16,13 @@ post "/surveys/:id/questions" do
     Choice.create(body: "Medium Bananas", question_id: @question.id)
     Choice.create(body: "Just Bananas", question_id: @question.id)
     Choice.create(body: "Barely Bananas", question_id: @question.id)
-    redirect "/surveys/#{@survey.id}/questions/new"
+    erb :"/questions/new", layout: false
+    # redirect "/surveys/#{@survey.id}/questions/new"
   else
     @errors = @question.errors.full_messages.to_sentence
-    erb :"questions/new"
+    erb :"questions/new", layout: false
+    puts "butts"
+    puts @question.prompt
   end
 end
 

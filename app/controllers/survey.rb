@@ -9,14 +9,26 @@ end
 #NEW
 get '/surveys/new' do
   @user = validate_user
-  erb :'/surveys/new'
+  if request.xhr?
+    erb :"/surveys/_new", layout: false
+  else
+    erb :'/surveys/new'
+  end
 end
 
 #CREATE
 post '/surveys' do
+  puts params
   @survey = Survey.new(params[:survey])
   if @survey.save
-    redirect "/surveys/#{@survey.id}/questions/new"
+    if request.xhr?  
+      @user = validate_user
+      @question = Question.new(survey_id: @survey.id)
+      # erb :"questions/new"
+      erb :"/questions/new", layout: false
+    else
+      redirect "/surveys/#{@survey.id}/questions/new"
+    end
   else
     @errors = @survey.errors.full_messages.to_sentence
     erb :'/surveys/new'

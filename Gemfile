@@ -8,6 +8,7 @@ gem 'pg'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'bcrypt-ruby'
+gem 'pry'
 
 gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'

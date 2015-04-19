@@ -1,8 +1,8 @@
-<body>
+<body id="survey-body">
   <div class = "surveys">
     <h1>this it the user show page</h1>
     <h2> hello <%= @user.username %>!</h2>
-    <a href="/surveys/new">Create a survey</a>
+    <a href="/surveys/new" id="create-survey">Create a survey</a>
     <h2><%= @user.username %>'s Surveys</h2>
     <ul>
 		<% @surveys.each do |survey| %>
