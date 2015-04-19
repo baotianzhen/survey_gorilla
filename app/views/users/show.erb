@@ -1,17 +1,23 @@
 <body>
   <div class = "surveys">
-    <h1>this it the user show page</h1>
-    <h2> hello <%= @user.username %>!</h2>
-    <a href="/surveys/new">Create a survey</a>
-    <h2><%= @user.username %>'s Surveys</h2>
+    <h2> Ooo! Ooo! Aaa! Aaa! Hello, <%= @user.username %>!</h2>
+    <% if @surveys.empty? %>
 
-    <ul>
-		<% @surveys.each do |survey| %>
-      <li>
-			<a href="/surveys/<%= survey.id %>/submissions"><%= survey.title %></a>
-      </li>
-		<% end %>
-  </ul>
+      <h2>
+        You haven't created any surveys! Are you bananas?!?! <a href="/surveys/new">Create a survey!</a>
+      </h2>
+    <% else %>
+      <h2>You've created <%=@surveys.length %> surveys! That's totally bananas!</h2>
+      <ul>
+      <% @surveys.each do |survey| %>
+        <li>
+        <a href="/surveys/<%= survey.id %>/submissions"><%= survey.title %></a>
+        </li>
+      <% end %>
+      </ul>
+      <h2><a href="/surveys/new">Create another survey!</a> Go Bananas!</h2>
+    <% end %>
+
 	</div>
 </body>
 
