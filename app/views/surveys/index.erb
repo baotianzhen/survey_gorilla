@@ -1,0 +1,7 @@
+<!-- <div class="container" > layout includes container already-->
+  <ul>
+    <% @surveys.each do |survey| %>
+      <li> <%=survey.title %> - <a href="/surveys/<%= survey.id %>/submissions/new" > Take this Survey!</a></li>
+    <%end%>
+  </ul>
+<!-- </div> -->
