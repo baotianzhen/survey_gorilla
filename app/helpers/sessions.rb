@@ -7,8 +7,7 @@ helpers do
       return User.find(session[:id])
     else
       puts "anonymous user detected"
-      anonymous_user ="Anonymous_#{Time.now}"
-      return User.create(username: anonymous_user, email: "#{anonymous_user}@anonymous.com", password_hash: anonymous_user)
+      return User.find_by(username: "Anonymous")
       # puts "no session id"
       # redirect "/"
     end
