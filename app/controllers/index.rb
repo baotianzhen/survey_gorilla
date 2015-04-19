@@ -13,6 +13,7 @@ get '/' do
 end
 
 get "/about" do
+  @user = validate_user
   erb :about
 end
 
