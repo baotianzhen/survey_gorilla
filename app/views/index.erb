@@ -1,7 +1,7 @@
 <div class = "surveys">
 	<% if @surveys %>
 		<% @surveys.each do |survey| %>
-			<a href = "surveys/<%=survey.id%>/submissions"><%= survey.title %></a></br>
+			<a href = "surveys/<%=survey.id%>/submissions/new"><%= survey.title %></a></br>
 		<% end %>
 	<% end %>
 </div>
