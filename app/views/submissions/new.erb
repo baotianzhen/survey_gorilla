@@ -9,8 +9,10 @@
 				<tr>
 					<% question.choices.each do |choice| %>
 						<tr>
-							<td><label for="<%= choice.body %>"><%= choice.body %></label>
-						<input type="radio" name="answers[:<%= question.id %>]" value="<%= choice.id %>"></td>
+							<td>
+								<input type="radio" name="answers[:<%= question.id %>]" value="<%= choice.id %>">
+								<label for="<%= choice.body %>"><%= choice.body %></label>
+						</td>
 						</tr>
 					<% end %>
 			</li>
